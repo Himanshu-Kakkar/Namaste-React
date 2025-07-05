@@ -97,3 +97,48 @@ dist and cache can be re-generated
 
 # Ep - 4
 ...
+
+# Ep - 5
+
+## named export/import
+    export const var-name = ...;
+    import {var-name} from file/path...;
+
+## default export/import
+    var-name = () => {...};
+
+    export default var-name;
+    import var-name from file/path;
+
+## Yes can be both export/import together
+
+    export const var-name1 = ...;
+    const var-name2 = ...;
+    export default var-name2;
+
+    import var-name1, {var-name2, var-name3} from file/path;
+
+## re-export
+    - this is correct..
+    export const var-name1 = ...; 
+    export default var-name1;
+
+    - But this is wrong.
+    const var-name1 = ...;
+    export var-name1;
+    export default var-name1;
+
+# React Hooks
+
+    (Normal JS utility functions)
+    - useState()
+    - useEffect()
+
+## Why react is Fast ?
+bcz it has Reconciliation, React Fiber, Diff algorithm, Virtual DOM.
+
+read all of them 
+https://github.com/acdlite/react-fiber-architecture
+https://youtu.be/MPCVGFvgVEQ?si=wSNGTcDw2Nqemsk_
+
+
