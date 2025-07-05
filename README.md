@@ -142,3 +142,26 @@ https://github.com/acdlite/react-fiber-architecture
 https://youtu.be/MPCVGFvgVEQ?si=wSNGTcDw2Nqemsk_
 
 
+# Ep - 6
+
+## Why state variables while having normal JS varibales ?
+
+when we need to change variable values dynamically or via some inputs by user 
+normal JS variables do update their value but the component do not re-render to change UI.
+
+So dynamically changes in UI not possible with nortmal JS variables.
+
+but with useState() component re-render the changes whenever react found any change in state. 
+
+In React, regular JavaScript variables are not tracked for changes. So, if you update a normal variable, React has no way of knowing that it changed, and the UI won’t automatically re-render.
+
+However, when you use state variables (via useState), React keeps track of changes. Whenever a state variable is updated, React triggers a re-render, compares the updated virtual DOM with the previous one (this is called Reconciliation), and then updates only the parts of the actual DOM that have changed.
+
+every time or (on every click) when state is changing reconciliation process is triggered.
+
+### React knows what to change.
+
+## How const state variable is changing its value ?
+
+first react changes the vslue refrencely oron its addresss.
+and when it re-render the components the const variables it takes as new const variable.
