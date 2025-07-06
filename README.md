@@ -157,7 +157,7 @@ In React, regular JavaScript variables are not tracked for changes. So, if you u
 
 However, when you use state variables (via useState), React keeps track of changes. Whenever a state variable is updated, React triggers a re-render, compares the updated virtual DOM with the previous one (this is called Reconciliation), and then updates only the parts of the actual DOM that have changed.
 
-every time or (on every click) when state is changing reconciliation process is triggered.
+every time or (on every click) when state is changing reconciliation process is triggered and react re-render the whole component.
 
 ### React knows what to change.
 
@@ -165,3 +165,71 @@ every time or (on every click) when state is changing reconciliation process is 
 
 first react changes the vslue refrencely oron its addresss.
 and when it re-render the components the const variables it takes as new const variable.
+
+## input box is read only untill 
+    You provided a `value` prop to a form field without an `onChange` handler. This will render a read-only field. If the field should be mutable use `defaultValue`. Otherwise, set either `onChange` or `readOnly`.
+
+
+# Ep - 7
+
+### Routing without children routes
+
+
+const AppLayout = () => {
+    return(
+        <div className= "app">
+            <Header />
+            <Body />
+        </div>
+    )
+}
+
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <AppLayout/>,
+        errorElement: <Error/>,
+    },
+    {
+        path: "/about",
+        element: <About/>,
+    },
+    {
+        path: "/contact",
+        element: <Contact/>,
+    },
+])
+
+### Routing with Children Routes
+
+using Outlet component
+
+Outlet component replace with children component according to matching routes
+
+## Two types of Routing
+- server side routing
+- client side routing
+
+
+## LInk tag vs <a> tag
+
+<a> tag reload the entire page
+while <Link> tag only renderes the required component
+
+### <Link> tag (from react-router-dom)
+Does not reload the entire page
+Uses client-side routing
+Only updates the part of the UI (component) that needs to change
+Keeps the app fast and SPA-like (Single Page Application)
+Looks like a normal anchor tag, but behaves smarter
+
+###  <a> tag (HTML anchor tag)
+Causes a full page reload
+Sends a new HTTP request to the server
+Loses React state and context
+Breaks the SPA behavior
+
+## GraphQL
+
+https://youtu.be/WtkKwO1viI8?si=oD5Vo1KnuNvkR0Nw
+
