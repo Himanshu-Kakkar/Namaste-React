@@ -211,19 +211,19 @@ Outlet component replace with children component according to matching routes
 - client side routing
 
 
-## LInk tag vs <a> tag
+## LInk tag vs < a > tag
 
-<a> tag reload the entire page
+< a > tag reload the entire page
 while <Link> tag only renderes the required component
 
-### <Link> tag (from react-router-dom)
+### < Link > tag (from react-router-dom)
 Does not reload the entire page
 Uses client-side routing
 Only updates the part of the UI (component) that needs to change
 Keeps the app fast and SPA-like (Single Page Application)
 Looks like a normal anchor tag, but behaves smarter
 
-###  <a> tag (HTML anchor tag)
+###  < a > tag (HTML anchor tag)
 Causes a full page reload
 Sends a new HTTP request to the server
 Loses React state and context
@@ -232,4 +232,88 @@ Breaks the SPA behavior
 ## GraphQL
 
 https://youtu.be/WtkKwO1viI8?si=oD5Vo1KnuNvkR0Nw
+
+# Ep - 8
+
+## Class base Components vs Functional Components
+
+
+In class base components 
+
+- Never Directly Update your state variables 
+- this.state.count = this.state.count + 1; // Wrong / Inconsistent
+
+- just same as we never update count = something directly in Functional Component 
+- We use setCount() 
+- Similarly In Class based Components 
+- we use 
+setState({
+    count: this.state.count +1;
+});
+
+
+## useEffect()
+
+During this render/execution of component:
+
+useState() returns the state and setter.
+useEffect() does not run the effect function — instead, it registers it.
+The component returns JSX and the UI is painted.
+After the component is mounted (i.e., UI is painted):
+React now executes the registered useEffect() function after render is complete.
+
+### why we make API call inside useEffect() in functional component ?
+
+Because useEffect() runs after the initial render, and this is the best time to:
+
+Fetch data from an API
+Set up things that should not block the initial render
+
+### if make API call inside Component ?
+
+Multiple unnecessary API calls on every render.
+Performance issues and possible API abuse.
+
+
+### why we make API calls inside componentDidMount() in class based components ?
+
+✅ componentDidMount() is perfect for side effects
+It runs after the initial render, so:
+The DOM is ready
+The component has been added to the UI
+We can safely fetch data and then use setState() to update the UI
+
+If you call APIs in render(), they'll fire every time the component re-renders, leading to:
+Multiple unnecessary network requests
+Infinite loops if setState() is triggered inside the response
+Poor performance
+
+componentDidMount() is called only once, after the first render, when the component is mounted (inserted into the DOM).
+#### 🧠 Why?
+React class components go through these lifecycle stages:
+
+Mounting → When the component is first added to the DOM
+constructor()
+render()
+componentDidMount() ✅ runs once here
+Updating → When props or state changes cause re-render
+render()
+componentDidUpdate() ✅ (not componentDidMount)
+Unmounting
+componentWillUnmount()
+So, even if the component re-renders many times, componentDidMount() will not run again — it only runs once, after the initial mount.
+
+### React LifeCycle Methods
+
+./Assets/image.jpg
+
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+### There is only one useEffect() with no dependency array 
+### where can I make API calls in that component ?
+
+Approach	                        Will it persist across renders?	     Suitable for flag?
+let hasFetched = false;	            ❌ No – resets every render	        ❌ Not suitable
+const hasFetched = useRef(false);	✅ Yes – persists	                ✅ Ideal
+
 
