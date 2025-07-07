@@ -4,6 +4,13 @@ const User = ({name}) => {
     const [count, setCount] = useState(0);
     const [count2, setCount2] = useState(1);
     useEffect( ()=> {
+        const timer = setInterval( () => {
+            console.log("Namaste React OP");
+        }, 1000);
+
+        return () => {
+            clearInterval(timer);
+        };
 
     }, []);
 
