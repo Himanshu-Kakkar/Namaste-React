@@ -7,7 +7,12 @@ const RestaurantCard = (props) => {
 
     return (
         <div className="res-card" style={{backgroundColor: "#f0f0f0",}}>
-        {/* style={styleCard} */}
+            {
+            // outer {...} means you are going to write JS inside JSX
+            // inner {...} the actusl JS object 
+            }
+            {/* style={styleCard} */}
+            
             <img 
                 className="res-logo"
                 alt="res-logo" 
