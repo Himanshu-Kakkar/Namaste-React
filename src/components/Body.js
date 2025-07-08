@@ -44,13 +44,15 @@ const Body = () => {
     return(
         <div>
             <div className="body">
-                <div className="filter">
-                    <div className="search">
-                        <input type="text" className="search-box" value={searchText} onChange={(e)=> {
+                <div className="filter flex">
+                    <div className="search m-4 p-4">
+                        <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=> {
                             setSearchText(e.target.value);
                             }}
                         />
-                        <button onClick={() => {
+                        <button 
+                        className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+                        onClick={() => {
                             // Filter the restaurent cards and update the UI
                             // Search Text
                             console.log(searchText);
@@ -65,24 +67,27 @@ const Body = () => {
                             Search
                         </button>
                     </div>
-                    <button 
-                        className="filter-btn"
-                        onClick={() => {
-                            const filteredList = listOfRestaurents.filter(
-                                (res) => res.info.avgRating>4.5
-                            );
-                            setListOfRestaurents(filteredList);
-                            // console.log("Button Clicked"); 
-                        }}
-                        >
-                        Top Rated Restaurent
-                    </button>
+                    <div className="search m-4 p-4 flex items-center">
+                        <button 
+                            className="px-4 py-2 bg-gray-100 rounded-lg"
+                            onClick={() => {
+                                const filteredList = listOfRestaurents.filter(
+                                    (res) => res.info.avgRating>4.5
+                                );
+                                setListOfRestaurents(filteredList);
+                                // console.log("Button Clicked"); 
+                            }}
+                            >
+                            Top Rated Restaurent
+                        </button>
+                    </div>
+                    
                 </div>
             </div>
 
             {/* <div className="search">Search</div> */}
 
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
                 {
                     listOfRestaurents.map((restaurent) => (
                         <Link to={"/restaurents/"+restaurent.info.id} key={restaurent.info.id}><RestaurantCard  resData = {restaurent}/></Link>

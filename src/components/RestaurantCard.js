@@ -6,19 +6,20 @@ const RestaurantCard = (props) => {
     const {deliveryTime} = resData.info.sla;
 
     return (
-        <div className="res-card" style={{backgroundColor: "#f0f0f0",}}>
+        <div className="res-card m-4 p-4 w-[250px] rounded-lg bg-[#f0f0f0] hover:bg-[#e2d1c3]" >
             {
+            // style={{backgroundColor: "#f0f0f0",}}
             // outer {...} means you are going to write JS inside JSX
             // inner {...} the actusl JS object 
             }
             {/* style={styleCard} */}
             
             <img 
-                className="res-logo"
+                className="res-logo rounded-lg"
                 alt="res-logo" 
                 src={CDN_URL+cloudinaryImageId}></img>
 
-            <h3>{name}</h3>
+            <h3 className="font-bold py-4 text-lg">{name}</h3>
             <h4>{cuisines.join(", ")}</h4>
             <h4>{avgRating} stars</h4>
             <h4>{deliveryTime} minutes</h4>
