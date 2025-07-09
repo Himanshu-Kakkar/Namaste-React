@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel}from "./RestaurantCard";
 // import resList from "../utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
@@ -13,11 +13,13 @@ const Body = () => {
     const [listOfRestaurents, setListOfRestaurents] = useState([]);
     const [searchText, setSearchText] = useState("");
     const onlineStatus = useOnlineStatus();
+
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
     useEffect(()=> {
         console.log("useEffect called");
         fetchData();
     }, []);
-    console.log("Body rendered");
+    console.log("Body rendered", listOfRestaurents);
     
     const fetchData = async () => {
         try {
@@ -90,7 +92,20 @@ const Body = () => {
             <div className="res-container flex flex-wrap">
                 {
                     listOfRestaurents.map((restaurent) => (
-                        <Link to={"/restaurents/"+restaurent.info.id} key={restaurent.info.id}><RestaurantCard  resData = {restaurent}/></Link>
+
+                        <Link 
+                        to={"/restaurents/"+restaurent.info.id} 
+                        key={restaurent.info.id}
+                        >
+                            console.log(restaurent.info.promoted);
+                            {/* If the restaurent is promoted then add a promoted label to it */
+                                restaurent.info.promoted ? (
+                                    <RestaurantCardPromoted resData={restaurent}/>
+                                ) : (
+                                    <RestaurantCard  resData = {restaurent}/>
+                            )}
+  
+                        </Link>
                         ))
                 }           
             </div>
