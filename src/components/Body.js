@@ -97,7 +97,6 @@ const Body = () => {
                         to={"/restaurents/"+restaurent.info.id} 
                         key={restaurent.info.id}
                         >
-                            console.log(restaurent.info.promoted);
                             {/* If the restaurent is promoted then add a promoted label to it */
                                 restaurent.info.promoted ? (
                                     <RestaurantCardPromoted resData={restaurent}/>
