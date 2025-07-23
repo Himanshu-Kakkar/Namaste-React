@@ -7,8 +7,8 @@
      - Nav Items
     * Body
       - Search
-      - Restaurent Container
-        - Restaurent card
+      - Restaurant Container
+        - Restaurant card
     * Footer
       - Copyright
       - Links

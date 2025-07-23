@@ -317,3 +317,13 @@ let hasFetched = false;	            ❌ No – resets every render	        ❌ N
 const hasFetched = useRef(false);	✅ Yes – persists	                ✅ Ideal
 
 
+# Ep - 12 
+
+### Install redux
+
+- npm i @reduxjs/toolkit react-redux
+
+#### learn redux
+- https://youtu.be/1i04-A7kfFI?si=JDsKJPMxK59R7qJC
+
+ 

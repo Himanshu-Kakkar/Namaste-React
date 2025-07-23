@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MENU_URL } from "./constants";
 
-const useRestaurentMenu = (resId) => {
+const useRestaurantMenu = (resId) => {
     //fetch data
     const [resInfo, setResInfo] = useState(null);
 
@@ -20,4 +20,4 @@ const useRestaurentMenu = (resId) => {
 }
 
 
-export default useRestaurentMenu;
+export default useRestaurantMenu;

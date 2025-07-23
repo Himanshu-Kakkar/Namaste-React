@@ -1,43 +1,36 @@
 import { CDN_URL } from "../utils/constants";
 
-const RestaurantCard = (props) => {
-    const {resData} = props;
-    const {cloudinaryImageId, name, avgRating, costForTwo, cuisines} = resData?.info;
-    const {deliveryTime} = resData.info.sla;
+const RestaurantCard = ({ resData }) => {
+  const { cloudinaryImageId, name, cuisines, costForTwo, avgRating } =
+    resData?.info;
 
-    return (
-        <div className="res-card m-4 p-4 w-[250px] rounded-lg bg-[#f0f0f0] hover:bg-[#e2d1c3]" >
-            {
-            // style={{backgroundColor: "#f0f0f0",}}
-            // outer {...} means you are going to write JS inside JSX
-            // inner {...} the actusl JS object 
-            }
-            {/* style={styleCard} */}
-            
-            <img 
-                className="res-logo rounded-lg"
-                alt="res-logo" 
-                src={CDN_URL+cloudinaryImageId}></img>
+  return (
+    <div className="w-[280px] h-[370px] bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl hover:scale-105 transition duration-300">
+      <div className="relative">
+        <img
+          src={CDN_URL + cloudinaryImageId}
+          alt={name}
+          className="w-full h-48 object-cover"
+        />
+      </div>
 
-            <h3 className="font-bold py-4 text-lg">{name}</h3>
-            <h4>{cuisines.join(", ")}</h4>
-            <h4>{avgRating} stars</h4>
-            <h4>{deliveryTime} minutes</h4>
-            <h4>{costForTwo}</h4>
+      <div className="p-4 flex flex-col gap-2 flex-grow">
+        <h4 className="text-lg font-bold text-pink-700 truncate">{name}</h4>
+        <p className="text-sm text-gray-600 line-clamp-2">
+          {cuisines.join(", ")}
+        </p>
 
+        <div className="flex justify-between items-center mt-2">
+          <span className="text-sm font-semibold text-green-700 bg-green-100 px-2 py-1 rounded-full">
+            ⭐ {avgRating}
+          </span>
+          <span className="text-sm font-medium text-orange-700 bg-orange-100 px-2 py-1 rounded-full">
+            {costForTwo}
+          </span>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export const withPromotedLabel = (RestaurantCard) => {
-    return (props) => {
-        return (
-            <div>
-                <label className="absolute bg-black text-white m-2 p-2 roundedlg">Promoted</label>
-                <RestaurantCard {...props}/>
-            </div>
-        )
-    }
-
-}
 export default RestaurantCard;
