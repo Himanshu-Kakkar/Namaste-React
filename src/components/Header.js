@@ -3,13 +3,15 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     const onlineStatus = useOnlineStatus();
     const [loginBtn, setLoginBtn] = useState("Login");
     // const cartItems = useSelector((store) => store.cart.items);
     const cartItems = 0;
+    const {loggedInUser} = useContext(UserContext);
 
     return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] shadow-md">
@@ -79,6 +81,9 @@ const Header = () => {
               >
                 {loginBtn}
               </button>
+            </li>
+            <li>
+                {loggedInUser}
             </li>
           </ul>
         </nav>

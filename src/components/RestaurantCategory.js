@@ -1,11 +1,18 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const RestaurantCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex, dummy}) => {
+
+  // const [showItems, setShowItems] = useState(false);
+
+  // uncontrolled components
+  // bcz it is controlling itself to show items
+  // take away this power to its parent component
+  // and now it is depends on parent component
+  // its called controlled component
 
   const handleClick = () => {
-    setShowItems(!showItems);
+    setShowIndex();
   };
 
   return (
@@ -30,7 +37,7 @@ const RestaurantCategory = ({ data }) => {
         {/* Accordion Body */}
         {showItems && (
           <div className="pt-4">
-            <ItemList items={data.itemCards} />
+            <ItemList items={data.itemCards} dummy = {dummy}/>
           </div>
         )}
       </div>

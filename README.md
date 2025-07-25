@@ -323,6 +323,8 @@ const hasFetched = useRef(false);	✅ Yes – persists	                ✅ Ideal
 
 - npm i @reduxjs/toolkit react-redux
 
+### RTK
+
 #### learn redux
 - https://youtu.be/1i04-A7kfFI?si=JDsKJPMxK59R7qJC
 
