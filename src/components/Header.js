@@ -5,6 +5,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
 import { useState, useContext } from "react";
 import UserContext from "../utils/UserContext";
+// import LOGO from "../Assets/logo.png";
+
 
 const Header = () => {
     const onlineStatus = useOnlineStatus();
@@ -22,7 +24,7 @@ const Header = () => {
         <Link to="/">
           <div className="flex items-center gap-3">
             <img
-              src={LOGO_URL}
+              src={"https://res.cloudinary.com/dvnzvz4xh/image/upload/v1753468374/Screenshot_2025-07-26_at_00.02.35_zhb186.png"}
               alt="Yummyfy Logo"
               className="w-14 h-14 rounded-full shadow-md"
             />
