@@ -1,13 +1,13 @@
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] py-12 px-6">
+    <div className="min-h-screen pt-32 bg-gradient-to-br from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] py-12 px-6">
       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-3xl p-10 border border-orange-100">
         <h1 className="text-4xl font-extrabold text-center text-orange-500 mb-4 drop-shadow">
           📞 Get in Touch with Us
         </h1>
         <p className="text-center text-gray-700 text-lg mb-10 max-w-2xl mx-auto">
           We'd love to hear from you — whether you want to give feedback, have a
-          query, or just want to say hi! Our kitchen is always open for
+          query, or just want to say hi! Cravory is always open for
           conversation. 🍴✨
         </p>
 
@@ -59,7 +59,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="text-pink-500 hover:underline"
               >
-                @yummyfy
+                @cravory
               </a>
             </div>
           </div>
@@ -97,7 +97,7 @@ const Contact = () => {
 
         <div className="text-center mt-14">
           <p className="text-sm text-gray-500">
-            Made with ❤️ by Himanshu Kakkar | restaurant_name © 2025
+            Made with ❤️ by Himanshu Kakkar | Cravory © 2025
           </p>
         </div>
       </div>

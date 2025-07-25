@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] py-12 px-6">
+    <div className="min-h-screen pt-32 bg-gradient-to-b from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] py-12 px-6">
       <div className="max-w-5xl mx-auto bg-[#fffdf9] shadow-2xl rounded-3xl p-10 border border-orange-100">
         <h1 className="text-5xl font-extrabold text-center text-[#ff6b00] mb-8 drop-shadow">
           🍽️ About Yummyfy
@@ -45,11 +45,11 @@ const About = () => {
           <h2 className="text-2xl font-bold text-[#cc3366] mb-2">
             👨‍🍳 Made With Love
           </h2>
-          <p className="text-gray-700 max-w-xl mx-auto leading-relaxed">
-            Whether you're planning a cozy dinner, a party feast, or a solo
-            pamper night — Yummyfy is here to deliver the food that makes your
-            moments special. Freshly made, thoughtfully packed, and always on
-            time.
+          <p className="text-gray-700 max-w-xxl mx-auto leading-relaxed">
+            Whether you're planning a cozy dinner, a midnight snack attack, 
+            or a well-deserved solo treat — Cravory delivers what you're craving. 
+            Freshly prepared, carefully packed, and always right on time. Because when 
+            cravings call, we answer fast.
           </p>
         </div>
       </div>

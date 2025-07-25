@@ -324,6 +324,14 @@ const hasFetched = useRef(false);	✅ Yes – persists	                ✅ Ideal
 - npm i @reduxjs/toolkit react-redux
 
 ### RTK
+    redux-toolkit
+
+- build our store
+- connect our store to our app
+- slice(CartSlice)
+- dispatch(action)
+- Selector
+
 
 #### learn redux
 - https://youtu.be/1i04-A7kfFI?si=JDsKJPMxK59R7qJC

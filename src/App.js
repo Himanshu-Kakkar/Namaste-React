@@ -9,6 +9,10 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import {createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import "../index.css";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
+// provider is like a bridge as it is importing from react-redux
 
 // import Grocery from "./components/Grocery";
 
@@ -45,12 +49,14 @@ const AppLayout = () => {
         // over writing the loggedInUser value
         // all components can use this value
         // we can have nested providers for different components with different value
-        <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
-            <div className= "app">
-                <Header />
-                <Outlet />
-            </div>
-        </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+                <div className= "app">
+                    <Header />
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -80,6 +86,10 @@ const appRouter = createBrowserRouter([
                 element: <Suspense fallback={<h1>Loading Grocery...</h1>}>
                             <Grocery/>
                          </Suspense>
+            },
+            {
+                path: "/cart",
+                element: <Cart/>
             }
         ],
         errorElement: <Error/>,

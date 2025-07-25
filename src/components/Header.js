@@ -9,29 +9,33 @@ import UserContext from "../utils/UserContext";
 const Header = () => {
     const onlineStatus = useOnlineStatus();
     const [loginBtn, setLoginBtn] = useState("Login");
-    // const cartItems = useSelector((store) => store.cart.items);
-    const cartItems = 0;
+
     const {loggedInUser} = useContext(UserContext);
+
+    // subscribing to the store using a selector
+    const cartItems = useSelector((store)=> store.cart.items);
 
     return (
     <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#fff7ec] via-[#ffe5dc] to-[#fce4ec] shadow-md">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
         {/* Logo + Brand Name */}
-        <div className="flex items-center gap-3">
-          <img
-            src={LOGO_URL}
-            alt="Yummyfy Logo"
-            className="w-14 h-14 rounded-full shadow-md"
-          />
-          <div className="flex flex-col">
-            <span className="text-xl font-extrabold text-orange-500">
-              Yummyfy
-            </span>
-            <span className="text-sm text-gray-500 italic">
-              Food that makes you happy
-            </span>
+        <Link to="/">
+          <div className="flex items-center gap-3">
+            <img
+              src={LOGO_URL}
+              alt="Yummyfy Logo"
+              className="w-14 h-14 rounded-full shadow-md"
+            />
+            <div className="flex flex-col">
+              <span className="text-xl font-extrabold text-orange-500">
+                Cravory
+              </span>
+              <span className="text-sm text-gray-500 italic">
+                Where Cravings Meet Their Match
+              </span>
+            </div>
           </div>
-        </div>
+        </Link>
 
         {/* Navigation */}
         <nav>

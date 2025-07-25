@@ -37,16 +37,24 @@ const RestaurantMenu = () => {
           {cuisines.join(", ")} - {costForTwoMessage}
         </p> 
       {/* categories accordions */}
-      {categories.map((category, index) => (
-        // controlled component
-        <RestaurantCategory
-          key={category?.card?.card.title}
-          data={category?.card?.card}
-          showItems={index === showIndex ? true : false}
-          setShowIndex={() => setShowIndex(index)}
-          dummy={dummy}
-        />
-      ))}
+      {!Array.isArray(categories) || categories.length === 0 ? (
+        <p className="text-gray-500 mt-6 text-lg italic">
+          No menu categories found for this restaurant.
+        </p>
+      ) : (
+        categories.map((category, index) => (
+          <RestaurantCategory
+            key={category?.card?.card.title}
+            data={category?.card?.card}
+            showItems={index === showIndex}
+            setShowIndex={() =>
+              setShowIndex((prevIndex) => (prevIndex === index ? null : index))
+            }
+            dummy={dummy}
+          />
+        ))
+      )}
+
     </div>
   );
 };
